@@ -1,5 +1,7 @@
 {
-    "credentias": {
-        "token": "ODc5NDI5NjM3NDg5NDI2NDcy.YSPmrA.IhMxnaq7lIQThjMJa7bYT_12G78"
-    }
+        "token": "ODc5NDI5NjM3NDg5NDI2NDcy.YSPmrA.IhMxnaq7lIQThjMJa7bYT_12G78",
+        "clientId": "879429637489426472",
+        "guildId": "523524545710129173",
+        "prefix": "u!",
+        "logFile": "log.txt"
 }
