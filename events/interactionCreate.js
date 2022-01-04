@@ -2,8 +2,9 @@ const colors = require('colors');
 module.exports = {
     name: 'interactionCreate',
     async execute(interaction, client) {
-        if(!interaction.isCommand()) return;
-
+        if (!interaction.isCommand()) return;
+        if (interaction.user.bot) return;
+        if (!interaction.guild) return;
         const command = interaction.client.commands.get(interaction.commandName);
 
         console.log(colors.grey(`${interaction.user.tag} em #${interaction.channel.name} (${interaction.guild.name}) realizou o comando ${interaction.commandName}.`));

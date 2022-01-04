@@ -3,6 +3,7 @@ module.exports = {
     name: 'ready',
     once: true, 
     execute(client) { 
-        console.log(colors.cyan('Bot carregado!'))
+        client.user.setActivity(`${client.guilds.cache.size} servers`, {type : "PLAYING"});
+        console.log(colors.cyan(`🔵 - ${client.user.username} (${client.users.cache.size} Usuários, ${client.guilds.cache.size} Servidores)`))
     }
 };

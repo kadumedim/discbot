@@ -17,10 +17,11 @@ function start() {
 	console.log(colors.cyan('Registrando Comandos....'));
 	deploy.registerCommands();
 
-	console.log(colors.cyan('Conectando o Bot...'));
+	console.log(colors.cyan('Conectando...'));
 	client.login(token).catch(err => {
-		console.log(colors.red('Não foi possível logar-se no Discord.'));
-		console.log(err);
+			console.log(colors.red('Não foi possível logar-se no Discord.'));
+			console.log(err);
+			return;
 	});
 }
 
@@ -36,7 +37,7 @@ function loadCommands(dir) {
 	for (const file of commandFiles) {
 		const command = require(dir + `${file}`);
 		client.commands.set(command.data.name, command);
-		console.log(colors.yellow('[Command] ' + file + ' carregado!'))
+		console.log(colors.yellow('[Command] ' + file + ' ✅'))
 		nFiles++;
 	}
 	console.log(colors.yellow("Total de " + nFiles + " comandos carregados!"));
@@ -52,7 +53,7 @@ function loadEvents(dir) {
 	let nFiles = 0;
 	for (const file of eventFiles) {
 		const event = require(dir + `${file}`);
-		console.log(colors.yellow('[Event] ' + file + ' carregado!'))
+		console.log(colors.yellow('[Event] ' + file + ' ✅'))
 		nFiles++;
 		if (event.once) {
 			client.once(event.name, (...args) => event.execute(...args));
