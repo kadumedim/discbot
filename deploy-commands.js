@@ -1,4 +1,3 @@
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const { REST } = require('@discordjs/rest');
 const fs = require('fs');
 const colors = require('colors');
@@ -18,13 +17,13 @@ module.exports = {
         const rest = new REST({ version: '9' }).setToken(token);
 
         /*
-        COMANDOS GLOBAIS
+        COMANDOS GLOBAIS (Delay até ter deploy nos servidores)
         rest.put(Routes.applicationCommands(clientId), { body: commands })
             .then(() => console.log(colors.green('Comandos registrados.')))
             .catch(console.error);*/
 
         /* 
-        COMANDOS LOCAIS
+        COMANDOS LOCAIS (Deploy instantâneo nos servidores)
         */
         rest.put(Routes.applicationGuildCommands(clientId, guildId), { body: commands })
             .then(() => console.log(colors.green('Comandos registrados.')))
