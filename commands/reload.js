@@ -8,7 +8,7 @@ module.exports = {
         .setName("reloadcmds")
         .setDescription("Reload all commands (admin only)"),
     async execute(interaction) {
-        if(interaction.user.id != "229706675936821249") return interaction.reply({ content: 'No permissions to use this command!', ephemeral: true });
+        if (interaction.user.id != "229706675936821249") return interaction.reply({ content: 'No permissions to use this command!', ephemeral: true });
         try {
             for (const file of commandFiles) {
                 delete require.cache[require.resolve(`./${file}`)];
@@ -17,7 +17,6 @@ module.exports = {
                 const pull = require(`./${file}`);
                 interaction.client.commands.set(path.parse(file).name, pull);
             }
-            
         } catch (e) {
             return interaction.reply({ content: e, ephemeral: true });
         }

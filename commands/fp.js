@@ -6,17 +6,16 @@ const session = store.openSession();
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('freepoints')
+		.setName('points')
 		.setDescription('Get some free Points!'),
 	async execute(interaction) {
-		console.log(interaction.user.displayAvatarURL);
 		let user = {
 			id: interaction.user.id,
 			name: interaction.user.username,
 			idstr: interaction.user.id,
-			avatarUrl: interaction.user.displayAvatarURL,
+			avatarUrl: interaction.user.displayAvatarURL(),
 			'@metadata': {
-				'@collection': 'Economy'
+				'@collection': interaction.guildId.toString()
 			}
 		};
 		await session.store(user, user.id);
