@@ -1,2 +1,2 @@
 # discbot
-Learning about discord bots using Discord JS and some other utilities libraries.
+Learning about discord bots using Discord JS, Image Manipulation and OpusEncoder.
